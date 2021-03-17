@@ -14,6 +14,7 @@ class Employeer
     private $salary;
     private $admission_date;
 
+    //Getters and Setters
     public function get_name() {
         return $this->name;
      }  
@@ -53,8 +54,9 @@ class Employeer
     public function set_date($admission_date) {
         $this->admission_date = $admission_date;
     }
-   
-       public function register_employee()
+
+    //Método para cadastrar funcionário
+    public function register_employee()
     {
 
         $bd = new Database();
@@ -78,6 +80,7 @@ class Employeer
         ", $parametros);
     }
 
+    //Método para listar funcionários
     public function list_employee()
     {
 
@@ -88,6 +91,7 @@ class Employeer
         return $employee;
     }
 
+    //Método para calcular média de idade dos funcionários
     public function average_age()
     {
 
@@ -99,6 +103,7 @@ class Employeer
         return $av_age;
     }
 
+    //Método para listar funcionários e seus respectivos cargos
     public function all_job()
     {
 
@@ -110,6 +115,7 @@ class Employeer
         return $jobs;
     }
 
+    //Método para listar projetos concluidos
     public function state_project()
     {
 
@@ -122,21 +128,23 @@ class Employeer
         return $state_proj;
     }
 
+    //Método para simular salário mais percentual de acréscimo
     public function up_salary($perc){
 
-        $result = $this->salary  +  ($this->salary / 100 * $perc);
-        return $result;    
-
+            $result = $this->salary  +  ($this->salary / 100 * $perc);
+            return $result; 
+        
     }
 
-    public function project_pend(){
+    //Método para listar projetos pendentes em um período por funcionário 
+    public function project_pend($date1, $date2){
+        
         $bd = new Database();
-        $date_1 = $_POST['date_1'];
-        $date_2 = $_POST['date_2'];
         $pend_proj = $bd->select("
-            SELECT * FROM projects WHERE STATUS <>'completed'  AND DELIVERY_DATE BETWEEN $date_1 AND $date_2
+            SELECT * FROM projects WHERE STATUS <> 'completed' AND DELIVERY_DATE BETWEEN $date1 AND $date2
             GROUP BY ID_EMPLOYEE
             ORDER BY DELIVERY_DATE;
         ");
+        return $pend_proj;
     }
 }

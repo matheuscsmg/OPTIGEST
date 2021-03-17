@@ -43,7 +43,7 @@ class Project{
         $this->delivery_date = $delivery_date;
     }
 
-    //método para criar funcionário
+    //método para criar projeto
     public function register_project(){
 
         $bd = new Database();
