@@ -1,23 +1,19 @@
 <?php
 
-use core\classes\Store;
 use core\models\Employeer;
 
 $employee = new Employeer();
 
 $list_employee = $employee->list_employee();
 $ava = $employee->average_age();
-$list_proj_conc = $employee->state_project();
+$list_proj_conc = $employee->project_comp();
 
 foreach ($ava as $a) {
     foreach ($a as $value) {
         $result = $value;
     }
 }
-
-
 ?>
-
 
 <div class="container">
     <div class="row">
@@ -39,6 +35,7 @@ foreach ($ava as $a) {
                     </div>
 
                 </div>
+
 
                 <div class="row">
                     <label><strong>Salary Simulator: </strong></label>
@@ -68,7 +65,6 @@ foreach ($ava as $a) {
                     </div>
                     <div style="margin-top:1rem;">
                         <p>Result: <span class="badge bg-primary" style="font-size:20px">
-
                                 <?php
                                 if (isset($_POST['submit'])) {
                                     echo $employee->up_salary($_POST['perc']);
@@ -77,10 +73,10 @@ foreach ($ava as $a) {
                                 };
 
                                 ?>
-
                             </span></p>
                     </div>
                 </div>
+
 
                 <div class="row my-3">
                     <label><strong>List (Employee - Job): </strong></label>
@@ -101,12 +97,11 @@ foreach ($ava as $a) {
                 </div>
 
 
-
                 <div class="row my-3">
                     <label><strong>List of projects pending between: </strong></label>
                     <div class="col-4">
                         <div class="input-group">
-                            <input type="date" name="date_1" class="form-control" value="date_1">
+                            <input type="date" name="date_1" class="form-control">
                         </div>
                     </div>
                     <div class="col-1">
@@ -114,34 +109,38 @@ foreach ($ava as $a) {
                     </div>
                     <div class="col-4">
                         <div class="input-group">
-                            <input type="date" name="date_2" class="form-control" value="date_2">
+                            <input type="date" name="date_2" class="form-control">
                         </div>
                     </div>
                     <div class="col-2">
                         <input type="submit" name="submit4" value="Submit" class="btn btn-primary">
                     </div>
                     <div style="margin-top:1rem;">
-                        
-                        
-                        <?php if (isset($_POST['submit4'])) : ?>   
-                            <?php
-                                $data1 = implode("/",array_reverse(explode("-",$_POST['date_1'])));
-                                $data2 = implode("/",array_reverse(explode("-",$_POST['date_2'])));
-                             ?>
-                            <?php $list_proj_pend = $employee->project_pend(($data1), ($data2)); ?>
-                            <?php foreach ($list_proj_pend as $b) : ?>
-                            
-                                <ul class="list-group list-group-horizontal">
 
-                                    <li class="list-group-item"><?= $b->description ?></li>
-                                    <li class="list-group-item">Value: <?= $b->value ?> €</li>
-                                    <li class="list-group-item">Delivery Date: <?= $b->delivery_date ?></li>
+                        <table class="table">
+                            <?php if (isset($_POST['submit4'])) : ?>
+                                <?php $list_proj_pend = $employee->project_pend(($_POST['date_1']), ($_POST['date_2'])); ?>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Employee</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Value</th>
+                                        <th scope="col">Delivery Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                </ul>
-                            <?php endforeach; ?>
-
-                        <?php endif; ?>
-
+                                <?php foreach ($list_proj_pend as $b) : ?>
+                                        <tr>
+                                            <td><?=$b->name ?></td>
+                                            <td><?= $b->description ?></td>
+                                            <td><?= $b->value ?> €</td>
+                                            <td><?= $b->delivery_date ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            <?php endif; ?>
+                        </table>
 
                     </div>
 
@@ -151,7 +150,7 @@ foreach ($ava as $a) {
                 <div class="row my-3">
                     <label><strong> List Project (Completed): </strong> </label>
                     <div class="col-2 my-3">
-                        <input type="submit" name="submit3" value="Submit" class="btn btn-primary">
+                        <input type="submit" name="submit3" value="List" class="btn btn-primary">
                     </div>
                     <div>
 
@@ -159,6 +158,7 @@ foreach ($ava as $a) {
                             <?php if (isset($_POST['submit3'])) : ?>
                                 <thead>
                                     <tr>
+                                        <th scope="col">Employee</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Value</th>
                                         <th scope="col">Delivery Date</th>
@@ -168,6 +168,7 @@ foreach ($ava as $a) {
 
                                     <?php foreach ($list_proj_conc as $b) : ?>
                                         <tr>
+                                            <td><?=$b->name ?></td>
                                             <td><?= $b->description ?></td>
                                             <td><?= $b->value ?> €</td>
                                             <td><?= $b->delivery_date ?></td>

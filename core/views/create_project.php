@@ -25,9 +25,6 @@ $list_employee = $employee->list_employee();
                         <input type="radio" name="state" value="completed" checked>Completed
                     </label>
                     <label style="margin-right:1rem!important;">
-                        <input type="radio" name="state" value="under">Under development
-                    </label>
-                    <label style="margin-right:1rem!important;">
                         <input type="radio" name="state" value="pending">Pending
                     </label>
                 </div>
@@ -53,9 +50,20 @@ $list_employee = $employee->list_employee();
                 </div>
 
 
+                <div class="button-lign">
+                        <input type="submit" name="create" value="Create project" class="btn btn-primary">
+                        
+                        <a href="?a=home">
+                            <input type="button" name="back" value="Back" class="btn btn-primary">
+                        </a>
+                        <?php if (isset($_POST['create'])) : ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Project successfully registered !</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
 
-                <div class="my-4">
-                    <input type="submit" value="Create project" class="btn btn-primary">
+                        
                 </div>
 
 

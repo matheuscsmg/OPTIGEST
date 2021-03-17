@@ -31,9 +31,18 @@
                     <input type="date" name="text_ad_date" placeholder="Date" class="form-control" required>
                 </div>
 
-
-                <div class="my-4">
-                    <input type="submit" value="Create employee" class="btn btn-primary">                 
+                <div class="button-lign">
+                        <input type="submit" name="create" value="Create employee" class="btn btn-primary">
+                        <a href="?a=home">
+                            <input type="button" name="back" value="Back" class="btn btn-primary">
+                        </a>
+                        
+                        <?php if (isset($_POST['create'])) : ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Employee successfully registered !</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?> 
                 </div>
 
             </form>
@@ -42,8 +51,6 @@
     </div>
 </div>
 
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
-
 </body>
+
 </html>

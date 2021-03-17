@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a href="?a=inicio" class="navbar-brand">
+        <a href="?a=home" class="navbar-brand">
             <img src="assets/images/logo_optigest.png" class="logo-img">
         </a>
 

@@ -10,7 +10,6 @@ use Exception;
 class Main
 {
 
-
     public function index()
     {
         Store::Layout([
@@ -50,7 +49,7 @@ class Main
             Store::Layout([
                 'layouts/html_header',
                 'layouts/header',
-                'home'
+                'create_employee'
             ]);
 
         } catch (Exception $err){
@@ -60,7 +59,6 @@ class Main
         
         
     }
-
 
     public function new_project()
     {
@@ -91,7 +89,7 @@ class Main
             Store::Layout([
                 'layouts/html_header',
                 'layouts/header',
-                'home'
+                'create_project'
             ]);
 
         } catch (Exception $err){
@@ -99,7 +97,6 @@ class Main
             return;
         }
     }
-
     
     public function reports(){
 

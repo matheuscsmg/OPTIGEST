@@ -10,7 +10,7 @@ class Project{
     private $status;
     private $delivery_date;
 
-
+    //Getters and Setter
     public function get_description() {
         return $this->description;
     }  
@@ -43,7 +43,7 @@ class Project{
         $this->delivery_date = $delivery_date;
     }
 
-    //método para criar projeto
+    //Método para criar projeto
     public function register_project(){
 
         $bd = new Database();

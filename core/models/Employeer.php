@@ -33,23 +33,23 @@ class Employeer
 
     public function get_job() {
         return $this->job;
-       }       
-     
+    }
+           
     public function set_job($job) {
         $this->job = $job;
-       }
+    }
 
     public function get_salary() {
         return $this->salary;
-       }       
+    }       
      
     public function set_salary($salary) {
         $this->salary = $salary;
-       }
+    }
 
     public function get_date() {
         return $this->admission_date;
-       }       
+    }       
      
     public function set_date($admission_date) {
         $this->admission_date = $admission_date;
@@ -116,12 +116,15 @@ class Employeer
     }
 
     //Método para listar projetos concluidos
-    public function state_project()
+    public function project_comp()
     {
 
         $bd = new Database();
         $state_proj = $bd->select("
-            SELECT *  FROM projects WHERE STATUS='completed' AND DELIVERY_DATE BETWEEN '2021-01-01' AND '2021-12-31'
+            SELECT * FROM projects AS P 
+            INNER JOIN employees AS E
+            ON P.ID_EMPLOYEE =  E.ID 
+            WHERE STATUS='completed' AND DELIVERY_DATE BETWEEN '2021-01-01' AND '2021-12-31'
             ORDER BY VALUE DESC;
         ");
 
@@ -138,13 +141,16 @@ class Employeer
 
     //Método para listar projetos pendentes em um período por funcionário 
     public function project_pend($date1, $date2){
-        
         $bd = new Database();
         $pend_proj = $bd->select("
-            SELECT * FROM projects WHERE STATUS <> 'completed' AND DELIVERY_DATE BETWEEN $date1 AND $date2
-            GROUP BY ID_EMPLOYEE
-            ORDER BY DELIVERY_DATE;
+            SELECT * FROM projects AS P 
+            INNER JOIN employees AS E
+            ON P.ID_EMPLOYEE =  E.ID
+            WHERE P.STATUS <> 'COMPLETED' AND P.DELIVERY_DATE BETWEEN '$date1' AND '$date2'
+            GROUP BY E.NAME
+            ORDER BY P.DELIVERY_DATE;
         ");
+
         return $pend_proj;
     }
 }
