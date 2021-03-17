@@ -1,0 +1,22 @@
+{
+    "name": "matheus/phpstore",
+    "description": "Loja online em PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Matheus Silva",
+            "email": "matheusds.sousa@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "core\\" : "core/"
+        },
+        "files": [
+            "config.php"
+        ]
+    }
+}

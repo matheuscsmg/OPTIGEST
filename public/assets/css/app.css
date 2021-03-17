@@ -1,0 +1,56 @@
+/* app.css */
+
+* {
+    
+}
+
+.navegacao{
+    /* background-color: rgb(154, 171, 194); */
+    color: black;
+    border-bottom: solid 2px #eee;
+}
+
+
+
+.nav-item{
+    padding: 15px;
+    font-size: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: normal;
+    color: #555555;
+    text-decoration: none;
+}
+
+.nav-item:hover{
+    border-bottom: 3px solid #00bac6;
+}
+
+.logo-img{
+    margin-left: 3rem!important;
+    width: 30%;
+    margin-top: 0.4%;
+}
+
+.espaco-fundo{
+    margin-bottom: 80px;
+}
+
+
+.description{
+    margin-bottom: 1em; 
+}
+
+.description label{
+    margin-bottom: 0.2em;
+    display: block;
+}
+.description textarea{
+    padding: 0.2em;
+    border: 1px solid;
+    display: block;
+}
+
+.text-center{
+    margin-top: 2rem;
+    align-items: center;
+}
