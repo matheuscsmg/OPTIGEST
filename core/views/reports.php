@@ -24,7 +24,7 @@ foreach ($ava as $a) {
 
                 <div class="description my-5">
                     <div>
-                        <label for="description"><strong>Calculate average age of employees:</strong>&nbsp;
+                        <label for="description"><strong>Average age of employees:</strong>&nbsp;
                             <span class="badge bg-primary" style="font-size:20px">
 
                                 <?= intval($result); ?>
@@ -145,6 +145,7 @@ foreach ($ava as $a) {
                     </div>
 
                 </div>
+
 
                 <div class="row">
                     <div class="button-lign" >
