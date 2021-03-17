@@ -13,7 +13,7 @@
                     <a  href="?a=reports" class="nav-link active" aria-current="page">Reports</a>
                 </li>
                 <li class="nav-item">
-                    <a href="?a=new_employee" class="nav-link active" aria-current="page">Employeer</a>
+                    <a href="?a=new_employee" class="nav-link active" aria-current="page">Employees</a>
                 </li>
                 <li class="nav-item">
                     <a href="?a=new_project" class="nav-link active" aria-current="page">Projects</a>

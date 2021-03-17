@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            <h3 class="text-center">New Employeer</h3><br>
+            <h3 class="text-center">New Employee</h3><br>
 
 
             <form action="?a=create_employee" method="post">
