@@ -79,8 +79,8 @@ foreach ($ava as $a) {
 
 
                 <div class="row my-3">
-                    <label><strong>List (Employee - Job): </strong></label>
-                    <div class="col-2 my-3">
+                    <div class="button-lign">
+                        <label><strong>List (Employee - Job): </strong></label>
                         <input type="submit" name="submit2" value="List" class="btn btn-primary">
                     </div>
                     <div>
@@ -95,9 +95,9 @@ foreach ($ava as $a) {
                         <?php endif; ?>
                     </div>
                 </div>
+                
 
-
-                <div class="row my-3">
+                <div class="row my-5">
                     <label><strong>List of projects pending between: </strong></label>
                     <div class="col-4">
                         <div class="input-group">
@@ -146,10 +146,9 @@ foreach ($ava as $a) {
 
                 </div>
 
-
-                <div class="row my-3">
-                    <label><strong> List Project (Completed): </strong> </label>
-                    <div class="col-2 my-3">
+                <div class="row">
+                    <div class="button-lign" >
+                        <label><strong> List Project (Completed): </strong> </label>
                         <input type="submit" name="submit3" value="List" class="btn btn-primary">
                     </div>
                     <div>
@@ -179,8 +178,7 @@ foreach ($ava as $a) {
                         </table>
                     </div>
                 </div>
-
-
+                                   
             </form>
 
         </div>
