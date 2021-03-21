@@ -1,5 +1,6 @@
 <?php
 
+use core\classes\Store;
 use core\models\Employeer;
 
 $employee = new Employeer();
@@ -13,6 +14,7 @@ foreach ($ava as $a) {
         $result = $value;
     }
 }
+
 ?>
 
 <div class="container">
@@ -95,7 +97,7 @@ foreach ($ava as $a) {
                         <?php endif; ?>
                     </div>
                 </div>
-                
+
 
                 <div class="row my-5">
                     <label><strong>List of projects pending between: </strong></label>
@@ -130,9 +132,14 @@ foreach ($ava as $a) {
                                 </thead>
                                 <tbody>
 
-                                <?php foreach ($list_proj_pend as $b) : ?>
+                                    <?php foreach ($list_proj_pend as $b) : ?>
+                                        <?php
+                                            $invert_data_array = explode('-', $b->delivery_date);
+                                            $invert_data = array_reverse($invert_data_array);
+                                            $b->delivery_date = implode("-", $invert_data);
+                                        ?>
                                         <tr>
-                                            <td><?=$b->name ?></td>
+                                            <td><?= $b->name ?></td>
                                             <td><?= $b->description ?></td>
                                             <td><?= $b->value ?> €</td>
                                             <td><?= $b->delivery_date ?></td>
@@ -148,7 +155,7 @@ foreach ($ava as $a) {
 
 
                 <div class="row">
-                    <div class="button-lign" >
+                    <div class="button-lign">
                         <label><strong> List Project (Completed): </strong> </label>
                         <input type="submit" name="submit3" value="List" class="btn btn-primary">
                     </div>
@@ -167,8 +174,13 @@ foreach ($ava as $a) {
                                 <tbody>
 
                                     <?php foreach ($list_proj_conc as $b) : ?>
+                                        <?php
+                                            $invert_data_array = explode('-', $b->delivery_date);
+                                            $invert_data = array_reverse($invert_data_array);
+                                            $b->delivery_date = implode("-", $invert_data);
+                                        ?>
                                         <tr>
-                                            <td><?=$b->name ?></td>
+                                            <td><?= $b->name ?></td>
                                             <td><?= $b->description ?></td>
                                             <td><?= $b->value ?> €</td>
                                             <td><?= $b->delivery_date ?></td>
@@ -179,7 +191,7 @@ foreach ($ava as $a) {
                         </table>
                     </div>
                 </div>
-                                   
+
             </form>
 
         </div>
